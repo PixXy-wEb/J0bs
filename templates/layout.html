@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Armador</title>
+    {% block css %} <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}"> {% endblock %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+
+    <div class="header">
+        <a href="/"><img class="logo" src="{{ url_for('static', filename='images/logo.png') }}" alt="El Armador Logo"></a>
+        <div class="navbar">
+            <p class="nav-item-servicios"><a href="/Servicios">Servicios</a></p>
+            <p class="nav-item-galeria"><a href="/Galeria">Galería</a></p>
+            <p class="nav-item-contactame"><a href="/Proyectos">Proyectos</a></p>
+            <p class="nav-item-contactame"><a href="/Contacto">Contactame</a></p>
+        </div>
+    </div>
+    
+    {% block body %}
+
+    {% endblock %}
+
+    
+    
+    {% block scripts %} {% endblock %}
+</body>
+</html>

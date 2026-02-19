@@ -1,0 +1,354 @@
+{% extends "layout.html" %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+{% endblock %}
+
+{% block body %}
+    <!-- Hero Section Moderno -->
+    <div class="hero-section">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <div class="hero-left">
+                <span class="hero-badge">CONSTRUCCIÓN INTELIGENTE</span>
+                <h1 class="hero-title">
+                    ARMADOR Y COORDINACIÓN
+                    <span class="highlight">INTEGRAL</span>
+                </h1>
+                <p class="hero-subtitle">Coordinamos todos los oficios y suplidores de tu obra. Un solo punto de contacto, resultados medibles.</p>
+                
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <span class="hero-stat-number">150+</span>
+                        <span class="hero-stat-label">Proyectos</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-number">12</span>
+                        <span class="hero-stat-label">Años</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-number">100%</span>
+                        <span class="hero-stat-label">Satisfacción</span>
+                    </div>
+                </div>
+                
+                <div class="hero-cta">
+                    <button class="btn-primary" onclick="window.location.href='/Contacto'">Contactar</button>
+                    <button class="btn-secondary" onclick="window.location.href='/Galeria'"> Ver Proyectos </button>
+                </div>
+            </div>
+            
+            <div class="hero-right">
+                <div class="hero-image-grid">
+                    <div class="hero-image-item large">
+                        <img src="{{ url_for('static', filename='images/edif.jpeg') }}" alt="Proyecto principal">
+                        <div class="hero-image-overlay">
+                            <h4>Edificio Corporativo</h4>
+                            <p>Coordinación integral</p>
+                        </div>
+                    </div>
+                    <div class="hero-image-item">
+                        <img src="https://premiergreenhome.com/wp-content/uploads/2024/12/casas-steel-framing.jpg" alt="Construcción">
+                        <div class="hero-image-overlay">
+                            <h4>Steelframing</h4>
+                            <p>Estructura metálica</p>
+                        </div>
+                    </div>
+                    <div class="hero-image-item">
+                        <img src="https://images.griddo.udit.es/c/cover/q/70/w/1920/h/1080/p/center/f/jpeg/blog-diseno-de-interiores-271025-8a64a90f-23c3-4146-95f6-4916d98a9b26" alt="Interior">
+                        <div class="hero-image-overlay">
+                            <h4>Diseño Interior</h4>
+                            <p>Acabados de lujo</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Who We Are Section -->
+    <div class="section who-section">
+        <div class="who-grid">
+            <div class="who-content">
+                <span class="section-subtitle">QUIÉNES SOMOS</span>
+                <h2 class="section-title">Integramos y coordinamos tu proyecto</h2>
+                <div class="who-quote">
+                    Un solo punto de contacto para toda tu obra
+                </div>
+                <p class="who-text">
+                    Integro y coordino todos los oficios y suplidores de una obra. Centralizo compras, tiempos, calidad y ejecución. Resultados medibles y transparencia total.
+                </p>
+                
+                <div class="who-features">
+                    <div class="who-feature">
+                        <div class="who-feature-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <span class="who-feature-text">+15 años experiencia</span>
+                    </div>
+                    <div class="who-feature">
+                        <div class="who-feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <span class="who-feature-text">50+ profesionales</span>
+                    </div>
+                    <div class="who-feature">
+                        <div class="who-feature-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <span class="who-feature-text">Entrega a tiempo</span>
+                    </div>
+                    <div class="who-feature">
+                        <div class="who-feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <span class="who-feature-text">Garantía total</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="who-image">
+                <img src="{{ url_for('static', filename='images/cara.jpg') }}" alt="Nuestro equipo">
+            </div>
+        </div>
+    </div>
+
+    <!-- Mission & Vision Section -->
+    <div class="section mv-section">
+        <div class="section-header">
+            <span class="section-subtitle">NUESTRA FILOSOFÍA</span>
+            <h2 class="section-title">Misión y Visión</h2>
+            <p class="section-description">Lo que nos guía en cada proyecto</p>
+        </div>
+        
+        <div class="mv-grid">
+            <div class="mv-card">
+                <div class="mv-icon">
+                    <i class="fas fa-bullseye"></i>
+                </div>
+                <h3>Misión</h3>
+                <p>Nuestra misión es ayudarte con tu proyecto de la forma más eficiente posible, coordinando todos los aspectos para garantizar calidad y cumplimiento.</p>
+            </div>
+            
+            <div class="mv-card">
+                <div class="mv-icon">
+                    <i class="fas fa-eye"></i>
+                </div>
+                <h3>Visión</h3>
+                <p>Ser la empresa líder en coordinación de proyectos de construcción, con una sólida reputación de calidad, eficiencia y compromiso con nuestros clientes.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- What We Solve Section -->
+    <div class="section services-section">
+        <div class="section-header">
+            <span class="section-subtitle">QUÉ RESOLVEMOS</span>
+            <h2 class="section-title">Desafíos que eliminamos</h2>
+            <p class="section-description">Problemas comunes en construcción que solucionamos</p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-puzzle-piece"></i>
+                </div>
+                <h3>Fragmentación</h3>
+                <p>Evito la fragmentación entre suplidores y contratistas. Unificamos criterios y comunicación.</p>
+                <span class="service-tag">Coordinación</span>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+                <h3>Cronogramas</h3>
+                <p>Aseguramos cronogramas realistas y cumplimiento de plazos con seguimiento diario.</p>
+                <span class="service-tag">Planificación</span>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-dollar-sign"></i>
+                </div>
+                <h3>Costos</h3>
+                <p>Optimizamos costos sin sacrificar calidad. Transparencia total en cada gasto.</p>
+                <span class="service-tag">Ahorro</span>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Control</h3>
+                <p>Traemos transparencia y control a cada etapa del proyecto. Reportes en tiempo real.</p>
+                <span class="service-tag">Gestión</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Indicators Section -->
+    <div class="section success-section">
+        <div class="section-header">
+            <span class="section-subtitle">INDICADORES</span>
+            <h2 class="section-title">Métricas de éxito</h2>
+            <p class="section-description">Nuestros compromisos medibles</p>
+        </div>
+        
+        <div class="success-grid">
+            <div class="success-card">
+                <div class="success-number">100%</div>
+                <div class="success-label">Avance vs Cronograma</div>
+                <div class="success-desc">Cumplimiento de hitos</div>
+            </div>
+            
+            <div class="success-card">
+                <div class="success-number">0%</div>
+                <div class="success-label">Desviación</div>
+                <div class="success-desc">Presupuestaria por rubro</div>
+            </div>
+            
+            <div class="success-card">
+                <div class="success-number">24h</div>
+                <div class="success-label">Respuesta</div>
+                <div class="success-desc">Tiempo de respuesta garantizado</div>
+            </div>
+            
+            <div class="success-card">
+                <div class="success-number">0</div>
+                <div class="success-label">No Conformidades</div>
+                <div class="success-desc">Retrabajos eliminados</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Transparency Section -->
+    <div class="section transparency-section">
+        <div class="section-header">
+            <span class="section-subtitle">TRANSPARENCIA</span>
+            <h2 class="section-title">Compras y Gestión</h2>
+            <p class="section-description">Procesos claros y auditables</p>
+        </div>
+        
+        <div class="transparency-grid">
+            <div class="transparency-card">
+                <div class="transparency-icon">
+                    <i class="fas fa-file-invoice"></i>
+                </div>
+                <h3>Cotizaciones</h3>
+                <p>3 cotizaciones por rubro cuando aplique. Selección objetiva.</p>
+            </div>
+            
+            <div class="transparency-card">
+                <div class="transparency-icon">
+                    <i class="fas fa-chart-bar"></i>
+                </div>
+                <h3>Comparativo</h3>
+                <p>Comparativo técnico económico claro para tu decisión.</p>
+            </div>
+            
+            <div class="transparency-card">
+                <div class="transparency-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h3>Aprobación</h3>
+                <p>Aprobación del cliente antes de adjudicar cualquier compra.</p>
+            </div>
+            
+            <div class="transparency-card">
+                <div class="transparency-icon">
+                    <i class="fas fa-history"></i>
+                </div>
+                <h3>Trazabilidad</h3>
+                <p>Trazabilidad completa de pagos y entregas.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Affiliates Section -->
+    <div class="section affiliates-section">
+        <div class="section-header">
+            <span class="section-subtitle">ALIANZAS</span>
+            <h2 class="section-title">Afiliados</h2>
+            <p class="section-description">Empresas que confían en nosotros</p>
+        </div>
+        
+        <div class="affiliates-grid">
+            <div class="affiliate-card">
+                <span>LOGO</span>
+            </div>
+            <div class="affiliate-card">
+                <span>LOGO</span>
+            </div>
+            <div class="affiliate-card">
+                <span>LOGO</span>
+            </div>
+            <div class="affiliate-card">
+                <span>LOGO</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="cta-section">
+        <h2 class="cta-title">¿Listo para comenzar?</h2>
+        <p class="cta-description">Contactanos hoy y recibe un presupuesto sin compromiso para tu proyecto</p>
+        <button class="cta-button" onclick="window.location.href='/Contacto'">Solicitar Presupuesto</button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-row">
+                <div class="footer-col">
+                    <h3>El Armador</h3>
+                    <p>ARMADOR Y COORDINACIÓN INTEGRAL DE PROYECTOS DE CONSTRUCCIÓN</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="/">Página principal</a></li>
+                        <li><a href="#">Servicios</a></li>
+                        <li><a href="#">Galería</a></li>
+                        <li><a href="#">Testimonios</a></li>
+                        <li><a href="#">Contactanos</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contactanos</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-phone contact-icon"></i>
+                            <p>+1 (809) 258-5589</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope contact-icon"></i>
+                            <p>elarmadorrd@gmail.com</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt contact-icon"></i>
+                            <p>Santo Domingo, RD</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 El Armador. All Rights Reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+{% endblock %}

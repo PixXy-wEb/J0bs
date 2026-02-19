@@ -1,0 +1,392 @@
+{% extends "layout.html" %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/galeria.css') }}">
+{% endblock %}
+
+{% block body %}
+<!-- Gallery Header -->
+<div class="container-gallery">
+    <div class="title-badge">
+        <div class="line"></div>
+        <div class="this-stuff">
+            <h2 class="title-section">Galería de Proyectos</h2>
+            <p class="slogan-section">Nuestros Trabajos</p>
+        </div>
+    </div>
+
+    <!-- Quick Stats -->
+    <div class="stats-container">
+        <div class="stat-card">
+            <span class="stat-number">156</span>
+            <span class="stat-label">Proyectos Completados</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-number">89</span>
+            <span class="stat-label">Clientes Satisfechos</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-number">12</span>
+            <span class="stat-label">Años de Experiencia</span>
+        </div>
+    </div>
+
+    <!-- Filter Tabs -->
+    <div class="filter-section">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="sanitaria">Sanitaria</button>
+        <button class="filter-btn" data-filter="carpinteria">Carpintería</button>
+        <button class="filter-btn" data-filter="electricidad">Electricidad</button>
+        <button class="filter-btn" data-filter="pintura">Pintura</button>
+        <button class="filter-btn" data-filter="estructura">Estructura</button>
+        <button class="filter-btn" data-filter="cocina">Cocina</button>
+        <button class="filter-btn" data-filter="bano">Baño</button>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="search-container">
+        <input type="text" class="search-input" placeholder="Buscar proyectos..." id="searchInput">
+        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M15.5 14H14.71L14.43 13.73C15.41 12.59 16 11.11 16 9.5C16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-0.59 4.23-1.57L14 14.71V15.5L19 20.49L20.49 19L15.5 14ZM9.5 14C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14Z" fill="#E38C00"/>
+        </svg>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="gallery-grid" id="galleryGrid">
+        <!-- Proyecto 1 - Baño Sanitario -->
+        <div class="gallery-item" data-category="sanitaria bano" data-type="image">
+            <div class="gallery-item-inner">
+                <img src="https://norperfil.com/wp-content/uploads/2020/01/Muro-cortina-scaled.jpg" alt="Ventanas" class="gallery-image" loading="lazy">
+                <div class="gallery-overlay">
+                    <div class="gallery-tags">
+                        <span class="gallery-tag">Estructura</span>
+                        <span class="gallery-tag">Ventana</span>
+                    </div>
+                    <h4 class="gallery-title">Ventanas</h4>
+                    <p class="gallery-desc">Instalación completa de ventanas</p>
+                    <div class="gallery-footer">
+                        <span class="gallery-date">Enero 2026</span>
+                        <span class="gallery-views">👁️ 1.2k</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Proyecto 2 - Cocina Integral -->
+        <div class="gallery-item" data-category="carpinteria cocina" data-type="image">
+            <div class="gallery-item-inner">
+                <img src="https://www.docrysdc.es/sites/default/files/inline-images/cocinas-modernas.jpg" alt="Cocina de madera" class="gallery-image" loading="lazy">
+                <div class="gallery-overlay">
+                    <div class="gallery-tags">
+                        <span class="gallery-tag">Carpintería</span>
+                        <span class="gallery-tag">Cocina</span>
+                    </div>
+                    <h4 class="gallery-title">Cocina Integral en Roble</h4>
+                    <p class="gallery-desc">Muebles a medida y encimera de mármol</p>
+                    <div class="gallery-footer">
+                        <span class="gallery-date">Diciembre 2025</span>
+                        <span class="gallery-views">👁️ 2.3k</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Proyecto 3 - Instalación Eléctrica (Video) -->
+        <div class="gallery-item" data-category="electricidad" data-type="video">
+            <div class="gallery-item-inner">
+                <div class="video-thumbnail">
+                    <img src="https://tritonenergia.es/wp-content/uploads/2025/01/AdobeStock_962035266-1024x683.jpg" alt="Instalación eléctrica" class="gallery-image" loading="lazy">
+                    <div class="play-button">
+                        <svg width="50" height="50" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10" fill="#E38C00"/>
+                            <path d="M10 8L16 12L10 16V8Z" fill="white"/>
+                        </svg>
+                    </div>
+                    <span class="video-duration">3:24</span>
+                </div>
+                <div class="gallery-overlay">
+                    <div class="gallery-tags">
+                        <span class="gallery-tag">Electricidad</span>
+                        <span class="gallery-tag">Video</span>
+                    </div>
+                    <h4 class="gallery-title">Instalación Eléctrica Residencial</h4>
+                    <p class="gallery-desc">Proceso completo de cableado</p>
+                    <div class="gallery-footer">
+                        <span class="gallery-date">Febrero 2026</span>
+                        <span class="gallery-views">👁️ 856</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Proyecto 4 - Pintura Exterior -->
+        <div class="gallery-item" data-category="pintura" data-type="image">
+            <div class="gallery-item-inner">
+                <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=400" alt="Pintura exterior" class="gallery-image" loading="lazy">
+                <div class="gallery-overlay">
+                    <div class="gallery-tags">
+                        <span class="gallery-tag">Pintura</span>
+                        <span class="gallery-tag">Exterior</span>
+                    </div>
+                    <h4 class="gallery-title">Fachada Residencial</h4>
+                    <p class="gallery-desc">Pintura texturizada y acabados</p>
+                    <div class="gallery-footer">
+                        <span class="gallery-date">Noviembre 2025</span>
+                        <span class="gallery-views">👁️ 654</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Proyecto 5 - Estructura Metálica -->
+        <div class="gallery-item" data-category="estructura" data-type="image">
+            <div class="gallery-item-inner">
+                <img src="https://estructurasmetal.com/wp-content/uploads/2023/09/estructura-metalica-3.jpg" alt="Estructura metálica" class="gallery-image" loading="lazy">
+                <div class="gallery-overlay">
+                    <div class="gallery-tags">
+                        <span class="gallery-tag">Estructura</span>
+                        <span class="gallery-tag">Steelframing</span>
+                    </div>
+                    <h4 class="gallery-title">Fachada Ventilada Steelframing</h4>
+                    <p class="gallery-desc">Estructura metálica para edificio</p>
+                    <div class="gallery-footer">
+                        <span class="gallery-date">Enero 2026</span>
+                        <span class="gallery-views">👁️ 1.5k</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Proyecto 6 - Mármol Importado -->
+        <div class="gallery-item" data-category="cocina bano" data-type="image">
+            <div class="gallery-item-inner">
+                <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=400" alt="Mármol" class="gallery-image" loading="lazy">
+                <div class="gallery-overlay">
+                    <div class="gallery-tags">
+                        <span class="gallery-tag">Mármol</span>
+                        <span class="gallery-tag">Revestimiento</span>
+                    </div>
+                    <h4 class="gallery-title">Revestimiento de Mármol Importado</h4>
+                    <p class="gallery-desc">Mármol travertino en baño principal</p>
+                    <div class="gallery-footer">
+                        <span class="gallery-date">Diciembre 2025</span>
+                        <span class="gallery-views">👁️ 978</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Proyecto 7 - Sistema de Baño (Video) -->
+        <div class="gallery-item" data-category="sanitaria bano" data-type="video">
+            <div class="gallery-item-inner">
+                <div class="video-thumbnail">
+                    <img src="https://sthexpert.standardhidraulica.com/wp-content/uploads/2019/08/Medidas-de-seguridad-a-tener-en-cuenta-en-instalaciones-de-gas.jpg" alt="Instalación sanitaria" class="gallery-image" loading="lazy">
+                    <div class="play-button">
+                        <svg width="50" height="50" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10" fill="#E38C00"/>
+                            <path d="M10 8L16 12L10 16V8Z" fill="white"/>
+                        </svg>
+                    </div>
+                    <span class="video-duration">5:17</span>
+                </div>
+                <div class="gallery-overlay">
+                    <div class="gallery-tags">
+                        <span class="gallery-tag">Sanitaria</span>
+                        <span class="gallery-tag">Baño</span>
+                    </div>
+                    <h4 class="gallery-title">Instalación de Sistema de Baño</h4>
+                    <p class="gallery-desc">Proceso de instalación de grifería</p>
+                    <div class="gallery-footer">
+                        <span class="gallery-date">Febrero 2026</span>
+                        <span class="gallery-views">👁️ 1.1k</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Proyecto 8 - Carpintería Exterior -->
+        <div class="gallery-item" data-category="carpinteria" data-type="image">
+            <div class="gallery-item-inner">
+                <img src="https://finamadera.com/wp-content/uploads/2024/06/20230715_195645443_iOS-1920x2560.jpg" alt="Puertas de madera" class="gallery-image" loading="lazy">
+                <div class="gallery-overlay">
+                    <div class="gallery-tags">
+                        <span class="gallery-tag">Carpintería</span>
+                        <span class="gallery-tag">Puertas</span>
+                    </div>
+                    <h4 class="gallery-title">Puertas de Madera Maciza</h4>
+                    <p class="gallery-desc">Diseño personalizado</p>
+                    <div class="gallery-footer">
+                        <span class="gallery-date">Enero 2026</span>
+                        <span class="gallery-views">👁️ 432</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Proyecto 9 - Panel Eléctrico -->
+        <div class="gallery-item" data-category="electricidad" data-type="image">
+            <div class="gallery-item-inner">
+                <img src="https://www.eabel.com/wp-content/uploads/2024/11/Open-electrical-panel-showing-circuits-and-wiring.webp" alt="Panel eléctrico" class="gallery-image" loading="lazy">
+                <div class="gallery-overlay">
+                    <div class="gallery-tags">
+                        <span class="gallery-tag">Electricidad</span>
+                        <span class="gallery-tag">Panel</span>
+                    </div>
+                    <h4 class="gallery-title">Panel de Control Industrial</h4>
+                    <p class="gallery-desc">Instalación de tablero eléctrico</p>
+                    <div class="gallery-footer">
+                        <span class="gallery-date">Noviembre 2025</span>
+                        <span class="gallery-views">👁️ 789</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Proyecto 10 - Pintura Interior (Video) -->
+        <div class="gallery-item" data-category="pintura" data-type="video">
+            <div class="gallery-item-inner">
+                <div class="video-thumbnail">
+                    <img src="https://content.elmueble.com/medio/2024/03/22/zona-de-trabajo-con-pared-pintada-en-color-verde-00528754_09be8a46_00528754_240322162048_2000x1333.jpg" alt="Pintura interior" class="gallery-image" loading="lazy">
+                    <div class="play-button">
+                        <svg width="50" height="50" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10" fill="#E38C00"/>
+                            <path d="M10 8L16 12L10 16V8Z" fill="white"/>
+                        </svg>
+                    </div>
+                    <span class="video-duration">2:48</span>
+                </div>
+                <div class="gallery-overlay">
+                    <div class="gallery-tags">
+                        <span class="gallery-tag">Pintura</span>
+                        <span class="gallery-tag">Interior</span>
+                    </div>
+                    <h4 class="gallery-title">Técnicas de Pintura Decorativa</h4>
+                    <p class="gallery-desc">Acabados y texturas</p>
+                    <div class="gallery-footer">
+                        <span class="gallery-date">Diciembre 2025</span>
+                        <span class="gallery-views">👁️ 567</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Proyecto 11 - Porcelanato -->
+        <div class="gallery-item" data-category="bano" data-type="image">
+            <div class="gallery-item-inner">
+                <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=400" alt="Porcelanato" class="gallery-image" loading="lazy">
+                <div class="gallery-overlay">
+                    <div class="gallery-tags">
+                        <span class="gallery-tag">Porcelanato</span>
+                        <span class="gallery-tag">Pisos</span>
+                    </div>
+                    <h4 class="gallery-title">Instalación de Porcelanato</h4>
+                    <p class="gallery-desc">Formato grande 60x60</p>
+                    <div class="gallery-footer">
+                        <span class="gallery-date">Febrero 2026</span>
+                        <span class="gallery-views">👁️ 623</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Proyecto 12 - Acero y Varillas -->
+        <div class="gallery-item" data-category="estructura" data-type="image">
+            <div class="gallery-item-inner">
+                <img src="https://acerosmontecristi.com/wp-content/uploads/2023/05/varilla-venta.webp" alt="Estructura de acero" class="gallery-image" loading="lazy">
+                <div class="gallery-overlay">
+                    <div class="gallery-tags">
+                        <span class="gallery-tag">Acero</span>
+                        <span class="gallery-tag">Estructura</span>
+                    </div>
+                    <h4 class="gallery-title">Estructura de Acero</h4>
+                    <p class="gallery-desc">Varillas y perfiles metálicos</p>
+                    <div class="gallery-footer">
+                        <span class="gallery-date">Enero 2026</span>
+                        <span class="gallery-views">👁️ 891</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox-modal" id="lightboxModal">
+        <span class="close-lightbox">&times;</span>
+        <div class="lightbox-content">
+            <div class="lightbox-media-container" id="lightboxMediaContainer"></div>
+            <div class="lightbox-info">
+                <h3 id="lightboxTitle"></h3>
+                <p id="lightboxDesc"></p>
+                <div class="lightbox-meta">
+                    <span id="lightboxDate"></span>
+                    <span id="lightboxViews"></span>
+                </div>
+                <div class="lightbox-tags" id="lightboxTags"></div>
+            </div>
+        </div>
+        <button class="lightbox-prev">❮</button>
+        <button class="lightbox-next">❯</button>
+    </div>
+</div>
+
+<!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-row">
+                <div class="footer-col">
+                    <h3>El Armador</h3>
+                    <p>ARMADOR Y COORDINACIÓN INTEGRAL DE PROYECTOS DE CONSTRUCCIÓN</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="/">Página principal</a></li>
+                        <li><a href="#">Servicios</a></li>
+                        <li><a href="#">Galería</a></li>
+                        <li><a href="#">Testimonios</a></li>
+                        <li><a href="#">Contactanos</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contactanos</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-phone contact-icon"></i>
+                            <p>+1 (809) 258-5589</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope contact-icon"></i>
+                            <p>elarmadorrd@gmail.com</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt contact-icon"></i>
+                            <p>Santo Domingo, RD</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 El Armador. All Rights Reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/galeria.js') }}"></script>
+{% endblock %}

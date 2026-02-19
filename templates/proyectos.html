@@ -1,0 +1,351 @@
+{% extends "layout.html" %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/proyectos.css') }}">
+{% endblock %}
+
+{% block body %}
+<!-- Header de la página -->
+<div class="proyectos-header">
+    <div class="title-badge">
+        <div class="line"></div>
+        <div class="this-stuff">
+            <h2 class="title-section">Proyectos Inmobiliarios</h2>
+            <p class="slogan-section">Descubre las mejores propiedades</p>
+        </div>
+    </div>
+    
+    <!-- Filtros rápidos -->
+    <div class="filter-tabs">
+        <button class="filter-btn active">Todos</button>
+        <button class="filter-btn">Destacados</button>
+        <button class="filter-btn">En Venta</button>
+        <button class="filter-btn">Próximos</button>
+        <button class="filter-btn">Entregados</button>
+    </div>
+</div>
+
+<!-- PROYECTOS DESTACADOS (3) - PLAN PREMIUM -->
+<div class="destacados-section">
+    <div class="section-subtitle">
+        <span class="premium-badge">✨ PREMIUM</span>
+        <h3>Proyectos Destacados</h3>
+    </div>
+    
+    <div class="destacados-grid">
+        <!-- Proyecto Destacado 1 -->
+        <div class="featured-banner">
+            <div class="featured-content">
+                <span class="featured-tag">🏆 PROYECTO DESTACADO</span>
+                <h3 class="featured-title">Edificio Corporativo Los Nogales</h3>
+                <p class="featured-desc">Proyecto completo de construcción y terminaciones de lujo en la zona más exclusiva</p>
+                <div class="featured-stats">
+                    <span><i class="fas fa-ruler"></i> 2,500 m²</span>
+                    <span><i class="fas fa-clock"></i> 8 meses</span>
+                    <span><i class="fas fa-users"></i> 25 trabajadores</span>
+                    <span class="price-tag">USD 2.5M</span>
+                </div>
+                <div class="featured-features">
+                    <span><i class="fas fa-check"></i> 100% vendido</span>
+                    <span><i class="fas fa-check"></i> Entrega inmediata</span>
+                    <span><i class="fas fa-check"></i> Certificación LEED</span>
+                </div>
+                <div class="featured-buttons">
+                    <button class="featured-btn" onclick="openProyecto(1)">Ver Detalles</button>
+                    <button class="contact-btn" onclick="contactar(1)">Solicitar Info</button>
+                </div>
+            </div>
+            <div class="featured-image">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600" alt="Edificio corporativo">
+                <div class="image-badge">DESTACADO</div>
+            </div>
+        </div>
+
+        <!-- Proyecto Destacado 2 -->
+        <div class="featured-banner reverse">
+            <div class="featured-content">
+                <span class="featured-tag">🏆 PROYECTO DESTACADO</span>
+                <h3 class="featured-title">Residencial Altos del Bosque</h3>
+                <p class="featured-desc">Lujosas residencias con vista panorámica y áreas verdes exclusivas</p>
+                <div class="featured-stats">
+                    <span><i class="fas fa-ruler"></i> 3,200 m²</span>
+                    <span><i class="fas fa-clock"></i> 12 meses</span>
+                    <span><i class="fas fa-home"></i> 24 unidades</span>
+                    <span class="price-tag">Desde USD 350k</span>
+                </div>
+                <div class="featured-features">
+                    <span><i class="fas fa-check"></i> 60% vendido</span>
+                    <span><i class="fas fa-check"></i> Entrega 2027</span>
+                    <span><i class="fas fa-check"></i> 3 piscinas</span>
+                </div>
+                <div class="featured-buttons">
+                    <button class="featured-btn" onclick="openProyecto(2)">Ver Detalles</button>
+                    <button class="contact-btn" onclick="contactar(2)">Solicitar Info</button>
+                </div>
+            </div>
+            <div class="featured-image">
+                <img src="https://assets.easybroker.com/property_images/1642783/25107982/EB-FH2783.jpg?version=1595471249" alt="Residencial">
+                <div class="image-badge">DESTACADO</div>
+            </div>
+        </div>
+
+        <!-- Proyecto Destacado 3 -->
+        <div class="featured-banner">
+            <div class="featured-content">
+                <span class="featured-tag">🏆 PROYECTO DESTACADO</span>
+                <h3 class="featured-title">Torre Empresarial Panorama</h3>
+                <p class="featured-desc">Oficinas corporativas con tecnología inteligente y eficiencia energética</p>
+                <div class="featured-stats">
+                    <span><i class="fas fa-ruler"></i> 5,000 m²</span>
+                    <span><i class="fas fa-clock"></i> 18 meses</span>
+                    <span><i class="fas fa-building"></i> 15 pisos</span>
+                    <span class="price-tag">Desde USD 2.8M</span>
+                </div>
+                <div class="featured-features">
+                    <span><i class="fas fa-check"></i> 40% pre-venta</span>
+                    <span><i class="fas fa-check"></i> Entrega 2028</span>
+                    <span><i class="fas fa-check"></i> 8 ascensores</span>
+                </div>
+                <div class="featured-buttons">
+                    <button class="featured-btn" onclick="openProyecto(3)">Ver Detalles</button>
+                    <button class="contact-btn" onclick="contactar(3)">Solicitar Info</button>
+                </div>
+            </div>
+            <div class="featured-image">
+                <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=600" alt="Torre empresarial">
+                <div class="image-badge">DESTACADO</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- PROYECTOS NORMALES (7) -->
+<div class="normales-section">
+    <div class="section-subtitle">
+        <h3>Más Proyectos</h3>
+        <p>Descubre otras oportunidades inmobiliarias</p>
+    </div>
+    
+    <div class="proyectos-grid">
+        <!-- Proyecto Normal 1 -->
+        <div class="proyecto-card">
+            <div class="card-image">
+                <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=400" alt="Casa moderna">
+                <span class="card-status">En Venta</span>
+            </div>
+            <div class="card-content">
+                <h4>Casa Moderna en Colinas</h4>
+                <p class="card-location"><i class="fas fa-map-marker-alt"></i> Santo Domingo</p>
+                <div class="card-details">
+                    <span><i class="fas fa-ruler"></i> 320 m²</span>
+                    <span><i class="fas fa-bed"></i> 4 hab</span>
+                    <span><i class="fas fa-bath"></i> 3 baños</span>
+                </div>
+                <p class="card-description">Moderna casa con acabados de lujo y piscina</p>
+                <div class="card-footer">
+                    <span class="card-price">USD 450,000</span>
+                    <button class="card-btn" onclick="openProyecto(4)">Ver</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Proyecto Normal 2 -->
+        <div class="proyecto-card">
+            <div class="card-image">
+                <img src="https://images.unsplash.com/photo-1577495508048-b635879837f1?w=400" alt="Apartamento">
+                <span class="card-status status-next">Próximo</span>
+            </div>
+            <div class="card-content">
+                <h4>Apartamentos del Parque</h4>
+                <p class="card-location"><i class="fas fa-map-marker-alt"></i> Santiago</p>
+                <div class="card-details">
+                    <span><i class="fas fa-ruler"></i> 120 m²</span>
+                    <span><i class="fas fa-bed"></i> 3 hab</span>
+                    <span><i class="fas fa-bath"></i> 2 baños</span>
+                </div>
+                <p class="card-description">Moderna torre de apartamentos con áreas comunes</p>
+                <div class="card-footer">
+                    <span class="card-price">USD 180,000</span>
+                    <button class="card-btn" onclick="openProyecto(5)">Ver</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Proyecto Normal 3 -->
+        <div class="proyecto-card">
+            <div class="card-image">
+                <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=400" alt="Local comercial">
+                <span class="card-status">En Venta</span>
+            </div>
+            <div class="card-content">
+                <h4>Locales Comerciales Centro</h4>
+                <p class="card-location"><i class="fas fa-map-marker-alt"></i> Distrito Nacional</p>
+                <div class="card-details">
+                    <span><i class="fas fa-ruler"></i> 80 m²</span>
+                    <span><i class="fas fa-store"></i> Local</span>
+                    <span><i class="fas fa-parking"></i> Parqueo</span>
+                </div>
+                <p class="card-description">Excelente ubicación, alta afluencia de público</p>
+                <div class="card-footer">
+                    <span class="card-price">USD 250,000</span>
+                    <button class="card-btn" onclick="openProyecto(6)">Ver</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Proyecto Normal 4 -->
+        <div class="proyecto-card">
+            <div class="card-image">
+                <img src="https://blog.gebesa.com/wp-content/uploads/2024/09/Ascend-desk-with-panels-escritorio-con-paneles201.webp" alt="Oficinas">
+                <span class="card-status">Renta</span>
+            </div>
+            <div class="card-content">
+                <h4>Oficinas Ejecutivas</h4>
+                <p class="card-location"><i class="fas fa-map-marker-alt"></i> Piantini</p>
+                <div class="card-details">
+                    <span><i class="fas fa-ruler"></i> 150 m²</span>
+                    <span><i class="fas fa-wifi"></i> Conectividad</span>
+                    <span><i class="fas fa-shield-alt"></i> Seguridad</span>
+                </div>
+                <p class="card-description">Oficinas modernas en el corazón financiero</p>
+                <div class="card-footer">
+                    <span class="card-price">USD 3,500/mes</span>
+                    <button class="card-btn" onclick="openProyecto(7)">Ver</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Proyecto Normal 5 -->
+        <div class="proyecto-card">
+            <div class="card-image">
+                <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400" alt="Villa de lujo">
+                <span class="card-status status-sold">Vendido</span>
+            </div>
+            <div class="card-content">
+                <h4>Villa Mediterránea</h4>
+                <p class="card-location"><i class="fas fa-map-marker-alt"></i> Casa de Campo</p>
+                <div class="card-details">
+                    <span><i class="fas fa-ruler"></i> 650 m²</span>
+                    <span><i class="fas fa-bed"></i> 5 hab</span>
+                    <span><i class="fas fa-swimmer"></i> Piscina</span>
+                </div>
+                <p class="card-description">Espectacular villa frente al mar</p>
+                <div class="card-footer">
+                    <span class="card-price price-sold">Vendido</span>
+                    <button class="card-btn" onclick="openProyecto(8)">Ver</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Proyecto Normal 6 -->
+        <div class="proyecto-card">
+            <div class="card-image">
+                <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=400" alt="Terreno">
+                <span class="card-status">En Venta</span>
+            </div>
+            <div class="card-content">
+                <h4>Terreno Industrial</h4>
+                <p class="card-location"><i class="fas fa-map-marker-alt"></i> Zona Industrial</p>
+                <div class="card-details">
+                    <span><i class="fas fa-ruler"></i> 2,000 m²</span>
+                    <span><i class="fas fa-truck"></i> Acceso</span>
+                    <span><i class="fas fa-bolt"></i> Servicios</span>
+                </div>
+                <p class="card-description">Terreno ideal para bodega o fábrica</p>
+                <div class="card-footer">
+                    <span class="card-price">USD 800,000</span>
+                    <button class="card-btn" onclick="openProyecto(9)">Ver</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Proyecto Normal 7 -->
+        <div class="proyecto-card">
+            <div class="card-image">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400" alt="Edificio">
+                <span class="card-status status-next">Próximo</span>
+            </div>
+            <div class="card-content">
+                <h4>Edificio Mirador</h4>
+                <p class="card-location"><i class="fas fa-map-marker-alt"></i> Bella Vista</p>
+                <div class="card-details">
+                    <span><i class="fas fa-ruler"></i> 4,500 m²</span>
+                    <span><i class="fas fa-building"></i> 12 pisos</span>
+                    <span><i class="fas fa-parking"></i> 80 parqueos</span>
+                </div>
+                <p class="card-description">Pre-venta de apartamentos de lujo</p>
+                <div class="card-footer">
+                    <span class="card-price">Desde USD 250k</span>
+                    <button class="card-btn" onclick="openProyecto(10)">Ver</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botón ver más -->
+    <div class="load-more">
+        <button class="load-more-btn">Ver más proyectos</button>
+    </div>
+</div>
+
+
+<!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-row">
+                <div class="footer-col">
+                    <h3>El Armador</h3>
+                    <p>ARMADOR Y COORDINACIÓN INTEGRAL DE PROYECTOS DE CONSTRUCCIÓN</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="/">Página principal</a></li>
+                        <li><a href="#">Servicios</a></li>
+                        <li><a href="#">Galería</a></li>
+                        <li><a href="#">Testimonios</a></li>
+                        <li><a href="#">Contactanos</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contactanos</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-phone contact-icon"></i>
+                            <p>+1 (809) 258-5589</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope contact-icon"></i>
+                            <p>elarmadorrd@gmail.com</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt contact-icon"></i>
+                            <p>Santo Domingo, RD</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 El Armador. All Rights Reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/proyectos.js') }}"></script>
+{% endblock %}

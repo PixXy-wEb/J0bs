@@ -1,0 +1,244 @@
+{% extends "layout.html" %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/contacto.css') }}">
+{% endblock %}
+
+{% block body %}
+<!-- Contact Header -->
+<div class="container-contact">
+    <div class="title-badge">
+        <div class="line"></div>
+        <div class="this-stuff">
+            <h2 class="title-section">Contáctame</h2>
+            <p class="slogan-section">Hablemos de tu proyecto</p>
+        </div>
+    </div>
+
+    <!-- Contact Info Cards -->
+    <div class="info-cards">
+        <div class="info-card">
+            <div class="info-icon">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#E38C00" stroke-width="2">
+                    <path d="M22 16.92v3a1.999 1.999 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8 10a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.574 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+            </div>
+            <h3>Teléfono</h3>
+            <p>+1 809 258 5589</p>
+            <p class="info-sub">Lun-Vie 9am-6pm</p>
+        </div>
+
+        <div class="info-card">
+            <div class="info-icon">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#E38C00" stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                    <polyline points="22,6 12,13 2,6"/>
+                </svg>
+            </div>
+            <h3>Email</h3>
+            <p>elarmadorrd@gmail.com</p>
+            <p class="info-sub">Respuesta en 24h</p>
+        </div>
+
+        <div class="info-card">
+            <div class="info-icon">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#E38C00" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                    <circle cx="12" cy="10" r="3"/>
+                </svg>
+            </div>
+            <h3>Ubicación</h3>
+            <p>Santo Domingo</p>
+            <p class="info-sub">Santo Domingo, Republica Dominicana</p>
+        </div>
+    </div>
+
+    <!-- Contact Form Section -->
+    <div class="contact-form-section">
+        <div class="form-container">
+            <h3 class="form-title">Envíame un mensaje</h3>
+            <p class="form-subtitle">Completa el formulario y te responderé a la brevedad</p>
+
+            <form id="contact-form" class="contact-form">
+                <!-- Hidden field for EmailJS contact number -->
+                <input type="hidden" name="contact_number">
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="user_name">Nombre completo *</label>
+                        <input type="text" id="user_name" name="user_name" class="form-control" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="user_email">Correo electrónico *</label>
+                        <input type="email" id="user_email" name="user_email" class="form-control" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="user_phone">Teléfono</label>
+                        <input type="tel" id="user_phone" name="user_phone" class="form-control" placeholder="Opcional">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="service_type">Tipo de servicio</label>
+                        <select id="service_type" name="service_type" class="form-control">
+                            <option value="">Selecciona una opción</option>
+                            <option value="sanitaria">Sanitaria</option>
+                            <option value="carpinteria">Carpintería</option>
+                            <option value="electricidad">Electricidad</option>
+                            <option value="pintura">Pintura</option>
+                            <option value="estructura">Estructura / Steelframing</option>
+                            <option value="cocina">Cocina</option>
+                            <option value="bano">Baño</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="message">Mensaje *</label>
+                        <textarea id="message" name="message" rows="6" class="form-control" required></textarea>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        <span class="btn-text">Enviar mensaje</span>
+                        <span class="btn-loader" style="display: none;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <circle cx="12" cy="12" r="10" stroke-width="4" stroke-dasharray="30" stroke-linecap="round">
+                                    <animateTransform attributeName="transform" type="rotate" from="0 12 12" to="360 12 12" dur="1s" repeatCount="indefinite"/>
+                                </circle>
+                            </svg>
+                        </span>
+                    </button>
+                </div>
+
+                <!-- Success/Error Message -->
+                <div class="form-message" id="formMessage"></div>
+            </form>
+        </div>
+
+        <!-- Map/Additional Info -->
+        <div class="map-container">
+            <h3 class="form-title">Horario de atención</h3>
+            <div class="schedule-box">
+                <div class="schedule-item">
+                    <span class="day">Lunes - Viernes</span>
+                    <span class="time">9:00 AM - 6:00 PM</span>
+                </div>
+                <div class="schedule-item">
+                    <span class="day">Sábado</span>
+                    <span class="time">10:00 AM - 2:00 PM</span>
+                </div>
+                <div class="schedule-item">
+                    <span class="day">Domingo</span>
+                    <span class="time">Cerrado</span>
+                </div>
+            </div>
+
+            <div class="response-time">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E38C00">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
+                </svg>
+                <span>Tiempo de respuesta: <strong>24 horas</strong></span>
+            </div>
+
+            <div class="social-links">
+                <h4>Sígueme en:</h4>
+                <div class="social-icons">
+                    <a href="#" class="social-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="#E38C00">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="#E38C00">
+                            <rect x="2" y="2" width="20" height="20" rx="5"/>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" stroke="white" stroke-width="2"/>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="white" stroke-width="2"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="#E38C00">
+                            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="#E38C00">
+                            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/>
+                            <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="white"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="faq-section">
+        <div class="title-badge">
+            <div class="line-cr"></div>
+            <div class="this-stuff">
+                <h2 class="title-section">Preguntas Frecuentes</h2>
+            </div>
+        </div>
+
+        <div class="faq-grid">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h4>¿Cómo funciona el presupuesto?</h4>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Realizamos una visita técnica gratuita para evaluar el proyecto y entregar un presupuesto detallado sin compromiso.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h4>¿Qué zonas cubren?</h4>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Trabajamos en toda la Ciudad de Santo Domingo y área metropolitana. Proyectos especiales pueden tener cobertura nacional.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h4>¿Cuánto tiempo toma una obra?</h4>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Depende de la magnitud del proyecto. Desde 2-3 días para trabajos pequeños hasta varias semanas para obras completas.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h4>¿Dan garantía?</h4>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Sí, todos nuestros trabajos tienen garantía de 1 año en mano de obra y materiales instalados.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<!-- EmailJS SDK -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="{{ url_for('static', filename='js/contacto.js') }}"></script>
+{% endblock %}
